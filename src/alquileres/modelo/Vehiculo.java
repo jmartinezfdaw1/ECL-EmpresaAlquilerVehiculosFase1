@@ -1,3 +1,4 @@
+package alquileres.modelo;
 
 /**
  * Representa a un vehículo en alquiler
@@ -31,6 +32,38 @@ public class Vehiculo {
 		this.modelo = modelo.toUpperCase();
 		this.precioDia = precioDia;
 
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public double getPrecioDia() {
+		return precioDia;
+	}
+
+	public void setPrecioDia(double precioDia) {
+		this.precioDia = precioDia;
 	}
 
 	/**

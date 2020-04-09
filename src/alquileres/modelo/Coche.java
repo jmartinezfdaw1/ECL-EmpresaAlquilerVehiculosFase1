@@ -1,3 +1,4 @@
+package alquileres.modelo;
 
 /**
  * Un coche es un vehículo que añade un nº de plazas
