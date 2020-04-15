@@ -13,6 +13,37 @@ package alquileres.modelo;
  * 25€
  * 
  */
-public class Furgoneta {
+public class Furgoneta extends Vehiculo{
+        private double volumenCarga;
+        
+        public Furgoneta(String matricula, String marca, String modelo,
+                double precioDia, double volumenCarga) {
+            super(matricula, marca, modelo, precioDia);
+            this.volumenCarga = volumenCarga;
+        }
+        
+        public double getVolumenCarga() {
+            return volumenCarga;
+        }
 
+        public void setVolumenCarga(double volumenCarga) {
+            this.volumenCarga = volumenCarga;
+        }
+
+        public double calcularPrecioAlquiler(int dias) {
+            double precio = super.getPrecioDia() * dias;
+            if(volumenCarga < 5) {
+                precio += 10;
+            }
+            else if(volumenCarga > 10) {
+                precio += 25;
+            }
+            else {
+                precio += 15;
+            }
+            return precio;
+        }
+        public String toString() {
+            return "\nFURGONETA\n" + super.toString() + "  |  Volumen: " + volumenCarga + " (m3)" + "\n";
+        }
 }

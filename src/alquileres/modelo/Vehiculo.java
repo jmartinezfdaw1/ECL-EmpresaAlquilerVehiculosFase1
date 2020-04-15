@@ -16,7 +16,7 @@ package alquileres.modelo;
  * misma matrícula
  * 
  */
-public class Vehiculo {
+public abstract class Vehiculo implements Comparable<Vehiculo> {
 	private String matricula;
 	private String marca;
 	private String modelo;
@@ -65,6 +65,7 @@ public class Vehiculo {
 	public void setPrecioDia(double precioDia) {
 		this.precioDia = precioDia;
 	}
+	public abstract double calcularPrecioAlquiler(int dias);
 
 	/**
 	 * Redefinición de hashCode()
@@ -74,5 +75,34 @@ public class Vehiculo {
 	public int hashCode() {
 		return matricula.hashCode() * 13;
 	}
+	
+	public boolean equals(Object obj)
+	 {
+	if (obj == null)
+	{
+	return false;
+	}
+	if (obj == this)
+	{
+	return true;
+	}
+	if (this.getClass() != obj.getClass())
+	{
+	return false;
+	}
+	Vehiculo v = (Vehiculo) obj;
+	return v.getMatricula().equals(this.matricula);
+	 }
+	
+	public int compareTo(Vehiculo otro) {
+		return this.matricula.compareToIgnoreCase(otro.getMatricula());
+	}
+	
+	public String toString() {
+		return "Matricula: " + matricula + "  |  Marca: " + marca + "  |  Modelo: " + modelo +
+				"\nPrecio dia alquiler: " + precioDia + "�";
+				
+	}
+
 
 }
